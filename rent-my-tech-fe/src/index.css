@@ -1,0 +1,321 @@
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html, body{
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4{
+  font-family: 'PT Serif', serif;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.2rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+
+@keyframes buttonhover{
+  0% {background-color: black}
+  100% {background-color: rgb(65, 65, 65)}
+}
+
+form{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+form input{
+  margin: 1rem;
+  padding: .5rem;
+  border: 1px solid black;
+  font-size: 1.6rem;
+}
+
+form select{
+  font-size: 1.6rem;
+  padding: .6rem;
+  margin: 1rem;
+}
+form span{
+  font-size: 1.8rem;
+}
+
+button{
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+p{
+  font-size: 1.4rem;
+  margin: 1rem;
+}
+
+button:hover{
+  animation: buttonhover .5s 1;
+  background-color: rgb(65, 65, 65);
+}
+
+i{
+  font-size: 3rem;
+}
+
+i:hover{
+  color: #09d3ac;
+}
+
+.button-row{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.navLinks{
+  font-size: 1.6rem;
+}
+
+.user-ads{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card-image{
+  width: 90%;
+}
+
+.itemslist{
+ max-width: 80%;
+ margin: 0 auto;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+
+.item-card{
+  width: 25%;
+  margin: 2%;
+  font-size: 1.6rem;
+  box-shadow: 3px 15px 51px -27px rgba(0,0,0,0.75);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.item-card:hover{
+  transform: translate(3px, 7px)
+}
+
+.modali-body{
+  font-size: 1.4rem
+}
+
+.modali-header{
+  display: none;
+}
+
+.item-detail{
+  width: 100%;
+}
+
+.dash-top{
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 3px dashed black;
+  width: 80%;
+}
+
+.dash-top-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-top-section img{
+  max-height: 50rem;
+}
+
+.detail-top{
+  margin: 10rem auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.detail-top-section-L{
+  width: 60%;
+  border-right: 3px dashed black;
+}
+
+.detail-top-section-L img{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.additem-form{
+  margin-top: 10rem;
+}
+
+.login-form{
+  margin-top: 10rem;
+}
+
+.signup-form{
+  margin-top: 10rem;
+}
+
+.reviews{
+  margin-top: 5rem;
+  width: 60%;
+  margin: 5rem auto;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.reviews h3{
+  text-align: start;
+ 
+}
