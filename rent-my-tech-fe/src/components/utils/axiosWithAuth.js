@@ -6,9 +6,9 @@ export const axiosWithAuth = () => {
     console.log('token', token)
 
     return axios.create({
-        baseURL: 'https://tech-stuff.herokuapp.com/',
+        baseURL: 'https://techrental.herokuapp.com/',
         headers: {
-            authorization: token
+            token: token
         }
     });
 };

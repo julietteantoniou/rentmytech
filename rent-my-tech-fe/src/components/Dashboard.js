@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom'
 
     useEffect( () => {
      axiosWithAuth()
-        .get(`/api/users/`)
+        .get(`/auth/user/${localStorage.getItem('userId')}`)
         .then(res => {
             console.log(res.data)
-            localStorage.setItem('USERID', res.data.id)
+            // localStorage.setItem('USERID', res.data.id)
             setUser(res.data)
         })
     }, [])
@@ -23,9 +23,9 @@ import { Link } from 'react-router-dom'
     console.log(user)
 
     useEffect(() => {
-        const id = localStorage.getItem('USERID')
+        const id = localStorage.getItem('userId')
         axiosWithAuth()
-           .get(`/api/users/${id}/ads`)
+           .get(`/api/tech/tech/user/${id}`)
            .then(res => {
                console.log(res.data)
                setDashboard(res.data)
@@ -36,7 +36,7 @@ import { Link } from 'react-router-dom'
         <div className='dashboard'>
             <div className='dash-top'>
                 <div className='dash-top-section'>
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"/>
+                    <img alt='placeholder for user photo' src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"/>
                 </div>
                 <div className='dash-top-section'>
             <h3>Hello {user.first_name}!</h3>

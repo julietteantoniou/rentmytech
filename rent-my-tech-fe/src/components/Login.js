@@ -25,10 +25,11 @@ const Login = (props) => {
     const submitLogin = e => {
         e.preventDefault();
         axiosWithAuth()
-        .post('/api/auth/login', credentials)
+        .post('/auth/login', credentials)
         .then(res => {
             console.log('submitLogin', res)
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem("userId", res.data.userId)
             routeToUserDashboard();
         })
         .catch(err => console.log("Error logging in: ", err.response))
@@ -50,8 +51,8 @@ const Login = (props) => {
                        value={credentials.password}
                        onChange={handleLogin}
                        />
-                <button onClick={submitLogin}> Login</button>
-                <h4>Not Renting Tech Yet? <Link to='/signup'>Sign Up Here</Link></h4>
+                <button aria-label="Login" onClick={submitLogin}> Login</button>
+                <h4>Not Renting Tech Yet? <Link to='/signup' aria-label="Sign Up">Sign Up Here</Link></h4>
             </form>
         </div>
     )

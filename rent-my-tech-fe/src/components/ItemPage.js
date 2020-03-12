@@ -7,32 +7,36 @@ const ItemPage = (props) => {
     
     const [itemDetail, setItemDetail] = useState();
     const id = props.match.params.id;
-    console.log(id)
+    // console.log(id)
     
 
     useEffect(() => {
 
-        axiosWithAuth().get(`https://tech-stuff.herokuapp.com/api/ads/${id}`)
+        axios.get(`https://techrental.herokuapp.com/api/tech/tech/${id}`)
         .then(response => {
-            setItemDetail(response.data.result)
-            console.log(response.data.result)
+            console.log(response.data)
+            setItemDetail(response.data)
+            console.log('hi')
         })
         .catch(error => {
             console.log('Error:', error)
         })
     },[])
+    console.log(itemDetail)
 
     if (!itemDetail) {
         return(
         <div>Page loading information</div>)
-    }
-    return (
-        <div>
-            {itemDetail.map(item =>{
-                return <ItemDetail item={item} />
-            })}
+    } 
+
+        return (
+            <div>
+           
+            <ItemDetail item={itemDetail} />
+         
         </div>
     );
+
 }
 
 export default ItemPage;

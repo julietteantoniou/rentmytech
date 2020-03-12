@@ -4,7 +4,7 @@ import axiosWithAuth from './utils/axiosWithAuth';
 
 const AddItem = (props) => {
 
-    const [item, setItem] = useState({title:"",description:"",  img_url:"", price:20.00, item_condition:"Excellent", item_available: true, negotiable: true})
+    const [item, setItem] = useState({title:"",description:"", make: "", model: "",  img_url:"", daily_cost:20.00, condition:"Excellent", category: "Accessories", available: true})
 
     const handleItem = event => {
         setItem({...item,
@@ -14,13 +14,18 @@ const AddItem = (props) => {
 
     const submitItem = e =>{
         e.preventDefault();
-        const id = localStorage.getItem('USERID')
-        console.log(item, id)
+        const id = localStorage.getItem('userId')
+        const postObj = {
+            user_id: id,
+            ...item
+        }
+        console.log(postObj)
         axiosWithAuth()
-        .post(`/api/ads/user/${id}`, item)
+        .post(`/api/tech/tech`, postObj)
             .then(res =>{
-                console.log(item)
+                console.log(postObj)
                 console.log(res)
+                props.history.push('/dashboard')
             })
             .catch(err => console.log(err.message))
     }
@@ -41,16 +46,28 @@ const AddItem = (props) => {
                    value={item.description}
                    onChange={handleItem}
                    />
+            <span>Make:</span>
+            <input type='text'
+                   name='make'
+                   value={item.make}
+                   onChange={handleItem}
+                   />
+            <span>Model:</span>
+            <input type='text'
+                   name='model'
+                   value={item.model}
+                   onChange={handleItem}
+                   />
             <span>Image Url</span>
             <input type='text'
                    name='img_url'
                    value={item.img_url}
                    onChange={handleItem}
                    />
-            <span>Price:</span>
+            <span>Daily Cost:</span>
             <input type='text'
-                   name='price'
-                   value={item.price}
+                   name='daily_cost'
+                   value={item.daily_cost}
                    onChange={handleItem}
                    />
             <span> Condition:</span>
@@ -60,12 +77,20 @@ const AddItem = (props) => {
                 <option>Fair</option>
                 <option>Poor</option>
             </select>
-            <span>Negotiable</span>
-            <input type='checkbox'
-                   name= 'negotiable'
-                   value={item.negotiable}
+            <span>Category</span>
+            <select
+                   name= 'category'
+                   value={item.category}
                    onChange={handleItem}
-                   />
+                   >
+                <option>Accessories</option>
+                <option>Audio</option>
+                <option>Cameras</option>
+                <option>Computers</option>
+                <option>Gadgets</option>
+                <option>Phones</option>
+                <option>Televisions</option>
+            </select>
             <button onClick={submitItem}>List Item</button>
             </form>
         </div>

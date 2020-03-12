@@ -219,6 +219,13 @@ i:hover{
   margin: 0 auto;
   padding: 1.5rem;
 }
+@media screen and (max-width: 750px){
+  .user-ads, .itemslist{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
 
 .card-image{
   width: 90%;
@@ -239,6 +246,12 @@ i:hover{
   box-shadow: 3px 15px 51px -27px rgba(0,0,0,0.75);
   border-radius: 20px;
   padding: 1rem;
+}
+
+@media screen and (max-width: 750px){
+  .item-card{
+    width: 95%;
+  }
 }
 
 .item-card:hover{
@@ -266,6 +279,11 @@ i:hover{
   border-bottom: 3px dashed black;
   width: 80%;
 }
+@media screen and (max-width: 750px){
+  .dash-top{
+    flex-direction: column-reverse;
+  }
+}
 
 .dash-top-section{
   display: flex;
@@ -274,6 +292,12 @@ i:hover{
 
 .dash-top-section img{
   max-height: 50rem;
+}
+
+@media screen and (max-width: 750px){
+  .dash-top-section img{
+    display: none;
+  }
 }
 
 .detail-top{

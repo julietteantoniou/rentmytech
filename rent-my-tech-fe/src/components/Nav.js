@@ -51,13 +51,13 @@ const Navigation = (props) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           {!userid && (<>
-            <Nav.Item><Link to="/login">Log In</Link></Nav.Item>
-            <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item></>)}
+            <Nav.Item aria-label="Login"><Link to="/login">Log In</Link></Nav.Item>
+            <Nav.Item aria-label="sign up"><Link to="/signup">Sign Up</Link></Nav.Item></>)}
           
           
           {/* <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item> */}
-          {userid && (<><Nav.Item><Link to="/dashboard">Dashboard</Link></Nav.Item>
-          <Link to='/'><Nav.Item onClick={logout}>Log Out</Nav.Item></Link>
+          {userid && (<><Nav.Item aria-label="dashboard"><Link to="/dashboard">Dashboard</Link></Nav.Item>
+          <Link to='/'><Nav.Item aria-label="Logout" onClick={logout}>Log Out</Nav.Item></Link>
           </>)}
           
         </Nav>

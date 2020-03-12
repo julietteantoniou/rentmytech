@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { stateList } from './utils/stateList.js'
 // import axiosWithAuth from "./utils/axiosWithAuth";
 
 const SignUp = (props) => {
 
     const [signup, setSignup] = useState(
-    {email: '', password: '', first_name: '', last_name: '', renter: true, owner: true}
+    {email: '', password: '', first_name: '', last_name: '', city: '', state: '', zip: ''}
         );
 
     const handleSignup = e => {
@@ -69,22 +70,21 @@ const SignUp = (props) => {
             last_name: submitLN,
             email: submitEmail,
             password: submitPW,
-            owner: true,
-            renter: true
+            ...signup
         }
         
         axios
-            .post('https://tech-stuff.herokuapp.com/api/auth/register', creds)
+            .post('https://techrental.herokuapp.com/auth/register', creds)
             .then(res => {
                 console.log("signup res", res)
                 console.log("creds submitted", creds)
                 props.setLoggedIn(true)
                 localStorage.setItem("token", res.token)
-               
+                
             })
+            routeToLogin()
             
             .catch(err => console.log( err.response));
-            routeToLogin()
             
         } 
         else console.log("error signing up", signup)
@@ -112,6 +112,21 @@ const SignUp = (props) => {
                    name='last_name'
                    placeholder='Enter Last Name'
                    value={signup.last_name}
+                   onChange={handleSignup}
+                   />
+            <input type='text'
+                   name='city'
+                   placeholder='Enter City'
+                   value={signup.city}
+                   onChange={handleSignup}
+                   />
+            <select name='state' value={signup.state} onChange={handleSignup}>
+                {stateList.map(state => <option>{state}</option>)}
+            </select>
+              <input type='text'
+                   name='zip'
+                   placeholder='Enter Zip Code'
+                   value={signup.zip}
                    onChange={handleSignup}
                    />
             <input type='password'

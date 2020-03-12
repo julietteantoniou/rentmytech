@@ -6,7 +6,7 @@ function ItemsCard ({ item }) {
     return(
         <div className='item-card'>
             <Link to={`/item/${item.id}`}>
-            <img className='card-image' alt="" src={img_url}/>
+            <img className='card-image' alt={`photo of ${title}`} src={`${img_url}`}/>
             <h3>{title}</h3>
             <p>${price}/per day</p>
             </Link>

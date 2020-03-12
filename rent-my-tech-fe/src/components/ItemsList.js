@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import ItemsCard from './ItemsCard';
 import axiosWithAuth from './utils/axiosWithAuth';
 import { Link } from 'react-router-dom'
@@ -11,11 +11,11 @@ function ItemsList() {
 
     useEffect(() => {
         const getItems = () => {
-            axiosWithAuth()
-            .get('https://tech-stuff.herokuapp.com/api/ads')
+            axios
+            .get('https://techrental.herokuapp.com/api/tech/tech')
             .then(response => {
                 console.log(response.data);
-               setItemsList(response.data.result); 
+               setItemsList(response.data); 
             })
             .catch(error => {
                 console.log('Error', error);
@@ -33,10 +33,10 @@ function ItemsList() {
                 {userid &&(
                 <p>Browse our current selection of available rentals below.</p>
                 )}
-                {!userid && (<p><Link to='/login'>Log in</Link> to view our current available rentals</p>)}
+                {!userid && (<p aria-label="Login"><Link to='/login'>Log in</Link> to view our current available rentals</p>)}
             </div>
             <div className='dash-top-section'>
-                <img className='top-img' src='https://images.unsplash.com/photo-1539683255143-73a6b838b106?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80'/>
+                <img alt="photo of a silver laptop on a desk" className='top-img' src='https://images.unsplash.com/photo-1539683255143-73a6b838b106?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80'/>
             </div>
         </div>
         <div className='itemslist'>
